@@ -1,0 +1,18 @@
+VERSION ""
+
+NS_ :
+
+BS_:
+
+BU_: ECU_Engine ECU_Cluster
+
+BO_ 288 Powertrain_Data: 8 ECU_Engine
+ SG_ EngineSpeed : 0|16@1+ (0.25,0) [0|8000] "rpm" ECU_Cluster
+ SG_ VehicleSpeed : 16|12@1+ (0.1,0) [0|250] "km/h" ECU_Cluster
+ SG_ EngineTemp : 28|8@1+ (1,-40) [-40|215] "degC" ECU_Cluster
+ SG_ ThrottlePosition : 36|8@1+ (0.5,0) [0|100] "%" ECU_Cluster
+ SG_ EngineStatus : 44|2@1+ (1,0) [0|3] "" ECU_Cluster
+
+CM_ BO_ 288 "Powertrain broadcast frame containing core powertrain telemetry.";
+CM_ SG_ 288 EngineSpeed "Actual engine crankshaft rotational speed in RPM.";
+CM_ SG_ 288 VehicleSpeed "Vehicle longitudinal velocity calculated from wheel sensors.";
